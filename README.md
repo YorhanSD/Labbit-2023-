@@ -23,5 +23,12 @@
 <h3>Labbit é um jogo de plataforma 2D em que o personagem principal, o coelho, precisa enfrentar e fugir de inimigos para escapar de um laboratório que realiza testes em animais. 
 </h3>
 
+# Downloads
+
+![](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+
+<h2><a href="https://drive.google.com/file/d/1V-yDPv81upuwREL_8Oxu34y9oWzlTUhM/view?usp=share_link">Labbit [Demo] v4.3</a></h2>
+
+
 
 
