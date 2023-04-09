@@ -15,7 +15,7 @@
   <li><h3>Processador : i3</h3></li>
   <li><h3>Placa de video : GeForce GT 730</h3></li>
   <li><h3>Memória RAM : 4 GB</h3></li>
-  <li><h3>Armazenamento livre: 1GB</h3></li>
+  <li><h3>Armazenamento livre: 1 GB</h3></li>
 </ul>
 
 # História
@@ -25,11 +25,15 @@
 
 # Derrote os Inimigos
 
-https://user-images.githubusercontent.com/79441853/229906518-af974660-4eb6-44a2-9cd1-ee3315e54407.mp4
+https://user-images.githubusercontent.com/79441853/230800018-51c38c87-e105-4390-a759-d33c6c134871.mp4
 
 # Colete Itens em Salas Secretas
 
 https://user-images.githubusercontent.com/79441853/229906575-b3309424-505c-4dd5-a2a8-28398ceb7ac0.mp4
+
+# Fuja das Armadilhas!
+
+https://user-images.githubusercontent.com/79441853/230800132-9a037570-6acd-4585-8498-7417eb0b7fe1.mp4
 
 # Downloads
 
