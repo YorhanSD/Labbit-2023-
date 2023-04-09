@@ -5,7 +5,7 @@
 # Sobre
 
 <h2>Gênero : Plataforma / Laboratório de Testes</h2>
-<h2>Plataforma : Windows (v 4.3)</h2>
+<h2>Plataforma : Windows</h2>
 <h2>Idioma: PT-BR</h2>
 <h2>Versão Atual : 4.3</h2>
   
