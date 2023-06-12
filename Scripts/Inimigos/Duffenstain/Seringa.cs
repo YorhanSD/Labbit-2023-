@@ -8,8 +8,8 @@ public class Seringa : MonoBehaviour
     public int dano = 20;
     public float velocidade = 20f;
     public float tempoDestruicao = 1f;
-    private bool confusaoMental;
-
+    public SpriteRenderer seringaSprite;
+    public bool ladoDireito;
 
     private Player_Vida playerVida;
     private Controle_Emocional controleEmocional;
@@ -25,8 +25,20 @@ public class Seringa : MonoBehaviour
     }
     public void Start()
     {
+        seringaSprite = GetComponent<SpriteRenderer>();
         rigd2D = GetComponent<Rigidbody2D>();
         Destruir();
+    }
+    private void Update()
+    {
+        if (direcao == Vector2.right)
+        {
+            seringaSprite.flipX = true;
+        }
+        else if (direcao == Vector2.left)
+        {
+            seringaSprite.flipX = false;
+        }
     }
     public void FixedUpdate()
     {
@@ -34,6 +46,7 @@ public class Seringa : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D _player)
     {
+        /*
         if (_player.gameObject.tag == "Player" && playerVida.GetImuneDano() == false)
         {
             playerVida.SetImuneDano(true);
@@ -41,6 +54,7 @@ public class Seringa : MonoBehaviour
             controleEmocional.Medo(50);
             Destroy(gameObject);
         }
+        */
     }
     public void Inicializar(Vector2 _direcao)
     {

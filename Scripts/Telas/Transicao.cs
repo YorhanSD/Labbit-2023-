@@ -25,15 +25,14 @@ public class Transicao : MonoBehaviour
     {
         if (_player.gameObject.tag == "Player")
         {
-            ativaTela.SetActive(true);
+            //ativaTela.SetActive(true);
             StartCoroutine(telaTransicao());
-            efeitosVisuais.tutorialAtivado = false;
         }
     }
 
     IEnumerator telaTransicao()
     {
         yield return new WaitForSeconds(3);
-        ativaTela.SetActive(false);
+        //ativaTela.SetActive(false);
     }
 }

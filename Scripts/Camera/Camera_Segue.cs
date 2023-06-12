@@ -15,6 +15,10 @@ public class Camera_Segue : MonoBehaviour
     {
         cE = GameObject.FindObjectOfType<Controle_Emocional>();
     }
+    private void Start()
+    {
+        gameObject.transform.position = playerPosicao.position;
+    }
     void Update()
     {
         if (cE.emocaoSlider.value >= 100)
@@ -42,12 +46,12 @@ public class Camera_Segue : MonoBehaviour
 
     void camNear()
     {
-        cam.orthographicSize = 30;
+        cam.orthographicSize = 25;
     }
 
     void camNormal()
     {
-        cam.orthographicSize = 25;
+        cam.orthographicSize = 20;
     }
 
     void camFar()

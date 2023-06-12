@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Tutorial_Detector : MonoBehaviour
 {
-    public GameObject colisor;
-
     public GameObject caixaDialogo;
+    public GameObject colisor;
+    public GameObject espinho;
 
     public bool resetEmocional;
 
@@ -21,19 +21,15 @@ public class Tutorial_Detector : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(colisor);
-
             caixaDialogo.SetActive(true);
-
-            Time.timeScale = 0f;
 
             if (resetEmocional == true)
             {
                 controleEmocional.recarregar = false;
                 controleEmocional.emocaoSlider.value = 50;
             }
-
-            Destroy(gameObject);
+            Destroy(espinho);
+            Destroy(colisor);
         }
     }
 }

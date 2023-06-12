@@ -7,14 +7,14 @@ public class Plataforma_Horizontal : MonoBehaviour
     bool moveDireita = true;
     public float velocidade = 8f;
 
-    public Transform pontoA;
-    public Transform pontoB;
+    public float posicaoInicial;
+    public float posicaoFinal;
 
     void Update()
     {
-        if (transform.position.x < pontoA.position.x)
+        if (transform.position.x < posicaoInicial)
             moveDireita = true;
-        if (transform.position.x > pontoB.position.x)
+        if (transform.position.x > posicaoFinal)
             moveDireita = false;
 
         if (moveDireita == true)

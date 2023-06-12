@@ -39,7 +39,7 @@ public class Graficos : MonoBehaviour
     }
     private void Update()
     {
-        if(botaoFPS.isOn == true)
+        if(botaoFPS.isOn == true && botaoFPS != null)
         {
             contadorFPS.SetActive(true);
         }

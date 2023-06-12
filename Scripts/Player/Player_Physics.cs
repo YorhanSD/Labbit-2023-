@@ -6,6 +6,15 @@ public class Player_Physics : MonoBehaviour
 {
     public Rigidbody2D rigid2D;
     private bool noChao;
+    private bool moonPunch;
+    public void SetMoonPunch(bool _moonPunch)
+    {
+        moonPunch = _moonPunch;
+    }
+    public bool GetMoonPunch()
+    {
+        return moonPunch;
+    }
     public void SetNoChao(bool _noChao)
     {
         noChao = _noChao;
@@ -26,8 +35,8 @@ public class Player_Physics : MonoBehaviour
     {
         if (GetNoChao() == false)
         {
-            rigid2D.gravityScale += 10f * Time.deltaTime;
-            rigid2D.mass += 10f * Time.deltaTime;
+            rigid2D.gravityScale += 7f * Time.deltaTime;
+            rigid2D.mass += 7f * Time.deltaTime;
         }
         else
         {

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuMorte : MonoBehaviour
 {
-    public GameObject efeitosVisuais;
     public GameObject telaMorte;
     public GameObject telaPergunta;
     public string restart;

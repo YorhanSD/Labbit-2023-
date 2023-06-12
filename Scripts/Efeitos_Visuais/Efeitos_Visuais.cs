@@ -7,16 +7,16 @@ using UnityEngine.UI;
 
 public class Efeitos_Visuais : MonoBehaviour
 {
-    public bool tutorialAtivado;
     Controle_Emocional controleEmocional;
 
     public GameObject medoTela;
     public GameObject coragemTela;
     public GameObject luzGlobal;
 
+    public Image[] imagens;
+
     void Awake()
     {
-        tutorialAtivado = true;
         controleEmocional = GameObject.FindObjectOfType<Controle_Emocional>();
     }
 
@@ -42,17 +42,27 @@ public class Efeitos_Visuais : MonoBehaviour
         medoTela.SetActive(false);
         
         luzGlobal.SetActive(true);
+
+        //imagens[0].color = Color.gray;
     }
 
     public void AtivaTelaCoragem() 
     {
         luzGlobal.SetActive(false);
         coragemTela.SetActive(true);
+
+        //float valor = Mathf.PingPong(Time.time, 1f);
+        
+        //imagens[0].color = new Vector4(255, 0, 0, valor);
     }
 
     public void AtivaTelaMedo()
     {
         luzGlobal.SetActive(false);
         medoTela.SetActive(true);
+
+        //float valor = Mathf.PingPong(Time.time, 1f);
+       
+        //imagens[0].color = new Vector4(0, 255, 0, valor);
     }
 }

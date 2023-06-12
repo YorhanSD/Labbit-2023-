@@ -71,12 +71,12 @@ public class UI_ItemQuantidade : MonoBehaviour
     {
         if (cenouraAzul.GetQuantidade() > 0)
         {
-            imagens[0].GetComponent<Image>().color = Color.white;
+            imagens[0].SetActive(true);
 
             return false;
         }
 
-        imagens[0].GetComponent<Image>().color = Color.black;
+        imagens[0].SetActive(false);
 
         return false;
     }
@@ -84,25 +84,25 @@ public class UI_ItemQuantidade : MonoBehaviour
     {
         if (cenouraLaranja.GetQuantidade() > 0)
         {
-            imagens[1].GetComponent<Image>().color = Color.white;
+            imagens[1].SetActive(true);
 
             return false;
         }
 
-        imagens[1].GetComponent<Image>().color = Color.black;
-        
+        imagens[1].SetActive(false);
+
         return false;
     }
     private bool MudaCorCenouraPreta()
     {
         if (cenouraPreta.GetQuantidade() > 0)
         {
-            imagens[2].GetComponent<Image>().color = Color.white;
+            imagens[2].SetActive(true);
 
             return false;
         }
 
-        imagens[2].GetComponent<Image>().color = Color.black;
+        imagens[2].SetActive(false);
 
         return false;
     }
@@ -110,12 +110,12 @@ public class UI_ItemQuantidade : MonoBehaviour
     {
         if (cenouraVerde.GetQuantidade() > 0)
         {
-            imagens[3].GetComponent<Image>().color = Color.white;
+            imagens[3].SetActive(true);
 
             return false;
         }
 
-        imagens[3].GetComponent<Image>().color = Color.black;
+        imagens[3].SetActive(false);
 
         return false;
     }
@@ -124,12 +124,12 @@ public class UI_ItemQuantidade : MonoBehaviour
     {
         if(superCenouraAzul.GetQuantidade() > 0)
         {
-            imagens[4].GetComponent<Image>().color = Color.white;
+            imagens[4].SetActive(true);
 
             return false;
         }
 
-        imagens[4].GetComponent<Image>().color = Color.black;
+        imagens[4].SetActive(false);
 
         return false;
     }
@@ -138,12 +138,12 @@ public class UI_ItemQuantidade : MonoBehaviour
     {
         if (superCenouraLaranja.GetQuantidade() > 0)
         {
-            imagens[5].GetComponent<Image>().color = Color.white;
+            imagens[5].SetActive(true);
 
             return false;
         }
 
-        imagens[5].GetComponent<Image>().color = Color.black;
+        imagens[5].SetActive(false);
 
         return false;
     }
@@ -152,12 +152,12 @@ public class UI_ItemQuantidade : MonoBehaviour
     {
         if (superCenouraPreta.GetQuantidade() > 0)
         {
-            imagens[6].GetComponent<Image>().color = Color.white;
+            imagens[6].SetActive(true);
 
             return false;
         }
 
-        imagens[6].GetComponent<Image>().color = Color.black;
+        imagens[6].SetActive(false);
 
         return false;
     }
@@ -166,12 +166,12 @@ public class UI_ItemQuantidade : MonoBehaviour
     {
         if (superCenouraVerde.GetQuantidade() > 0)
         {
-            imagens[7].GetComponent<Image>().color = Color.white;
+            imagens[7].SetActive(true);
 
             return false;
         }
 
-        imagens[7].GetComponent<Image>().color = Color.black;
+        imagens[7].SetActive(false);
 
         return false;
     }

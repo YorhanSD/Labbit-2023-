@@ -9,12 +9,12 @@ public class Player_Movimento : MonoBehaviour
     [Header ("Atributos de Movimentação")]
 
     [SerializeField] public float movimento;
-    [SerializeField][Range(15f,23f)] private float velocidade;
-    [SerializeField][Range(25f, 33f)] private float forcaPulo;
+    [SerializeField][Range(15f,30f)] private float velocidade;
+    [SerializeField][Range(25f, 50f)] private float forcaPulo;
     [SerializeField] private bool noChao;
     public bool ladoDireito = false;
 
-    private Player_Vida pV;
+    private Player_Bencaos playerBencaos;
     private Player_Physics playerPhysics;
     private SpriteRenderer sr;
     private Rigidbody2D rigid2D;
@@ -63,7 +63,7 @@ public class Player_Movimento : MonoBehaviour
     public void Awake()
     {
         playerPhysics = GameObject.FindObjectOfType<Player_Physics>();
-        pV = GameObject.FindObjectOfType<Player_Vida>();
+        playerBencaos = GameObject.FindObjectOfType<Player_Bencaos>();
     }
 
     public void Start()
@@ -127,13 +127,13 @@ public class Player_Movimento : MonoBehaviour
         if (_movimento > 0)
         {
             sr.flipX = true;
-            pontoDisparo.localPosition = new Vector2(2f, 0f);
+            pontoDisparo.localPosition = new Vector2(4.5f, 0f);
             ladoDireito = true;
         }
         else if (_movimento < 0)
         {
             sr.flipX = false;
-            pontoDisparo.localPosition = new Vector2(-2f, 0f);
+            pontoDisparo.localPosition = new Vector2(-4.5f, 0f);
             ladoDireito = false;
         }
     }
@@ -153,17 +153,16 @@ public class Player_Movimento : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D _seringa)
+    public void OnTriggerEnter2D(Collider2D _player)
     {
-        if (_seringa.gameObject.tag == "Seringa")
+        if (playerBencaos.GetImuneToxicidade() == false) 
         {
-            StartCoroutine(Confusao());
-        }
 
-        if (_seringa.gameObject.tag == "BioHazard")
-        {
-            StartCoroutine(Confusao());
-            Dano();
+            if (_player.gameObject.tag == "Seringa" || _player.gameObject.tag == "BioHazard")
+            {
+                StartCoroutine(Confusao());
+            }
+
         }
     }
     IEnumerator Confusao()
@@ -172,11 +171,6 @@ public class Player_Movimento : MonoBehaviour
         yield return new WaitForSeconds(2f);
         SetPlayerConfuso(false);
         sr.color = Color.white;
-    }
-
-    void Dano()
-    {
-        pV.barraDeVida.value -= 40;
     }
 
 

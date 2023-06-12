@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Player_Ataque : MonoBehaviour
 {
+    [Header("Atributos de Ataque")]
+
     public GameObject[] cenouraPrefab;
     private int contador = 0;
+    private Player_Physics playerPhysics;
     private Inventario inventario;
+    private Player_Bencaos playerBencaos;
     private Atirar_Cenoura atirarCenoura;
     private Player_Movimento playerMovimento;
     private Player_Vida playerVida;
-    private Cria_Itens criaItens;
     private Animator anim;
     public AudioSource aS;
     public AudioClip audioAtaque;
@@ -24,7 +27,8 @@ public class Player_Ataque : MonoBehaviour
         playerMovimento = GameObject.FindObjectOfType<Player_Movimento>();
         playerVida = GameObject.FindObjectOfType<Player_Vida>();
         inventario = GameObject.FindObjectOfType<Inventario>();
-        criaItens = GameObject.FindObjectOfType<Cria_Itens>();
+        playerBencaos = GameObject.FindObjectOfType<Player_Bencaos>();
+        playerPhysics = GameObject.FindObjectOfType<Player_Physics>();
 
     }
 
@@ -36,7 +40,7 @@ public class Player_Ataque : MonoBehaviour
     IEnumerator EsperaAnimacaoAtaque()
     {
         anim.SetTrigger("Hitting");
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.6f);
         podeAtacar = true;
         CenouraMovimento();
     }
@@ -56,9 +60,13 @@ public class Player_Ataque : MonoBehaviour
                     VerificaCenoura(atirarCenoura.GetItem());
                     atirarCenoura.SetPodeAtirar(false);
                     atirarCenoura.GetPodeAtirar();
-                    inventario.TiraItem(atirarCenoura.GetItem(),-1);
+                    inventario.TiraItem(atirarCenoura.GetItem(), -1);
                     StartCoroutine(EsperaAnimacaoAtaque());
                 }
+            }
+            else
+            {
+                anim.SetTrigger("Punch");
             }
         }
 
@@ -78,26 +86,34 @@ public class Player_Ataque : MonoBehaviour
 
                     if (atirarCenoura.GetItem().GetNome() == "Super Cenoura Preta")
                     {
-                        playerVida.Ressuscitar(true);
+                        playerBencaos.Ressuscitar(true);
                     }
                     else if (atirarCenoura.GetItem().GetNome() == "Super Cenoura Laranja")
                     {
-                        playerVida.Regeneracao(true);
+                        playerBencaos.Regeneracao(true);
                     }
                     else if (atirarCenoura.GetItem().GetNome() == "Super Cenoura Azul")
                     {
-                        playerVida.ImunidadeUltravioleta(true);
+                        playerBencaos.SetImunidadeUltravioleta(true);
                     }
                     else if (atirarCenoura.GetItem().GetNome() == "Super Cenoura Verde")
                     {
-                        criaItens.CriaCenouraVerde();
+                        playerBencaos.SetImunidadeToxicidade(true);
                     }
                     inventario.TiraItem(atirarCenoura.GetItem(),-1);
                 }
             }
+            else
+            {
+                anim.SetTrigger("Kicking");
+            }
         }
     }
 
+    public void AtaqueFisico()
+    {
+        
+    }
     public void VerificaCenoura(Item _item)
     {
         switch (_item.GetNome())

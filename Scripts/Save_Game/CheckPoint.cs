@@ -9,9 +9,6 @@ public class CheckPoint : MonoBehaviour
     public GameObject player;
     public GameObject feedbackSalvamento;
 
-    public Cenoura_Laranja cenouraLaranja;
-    public Cenoura_Preta cenouraPreta;
-
     public bool podeAbrir;
 
     private void Awake()

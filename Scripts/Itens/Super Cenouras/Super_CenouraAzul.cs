@@ -51,7 +51,7 @@ public class Super_CenouraAzul : Item
         {
             _inimigo.gameObject.SetActive(false);
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
 
             _inimigo.gameObject.SetActive(true);
         }

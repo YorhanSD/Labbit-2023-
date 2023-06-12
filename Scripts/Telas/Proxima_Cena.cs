@@ -14,7 +14,7 @@ public class Proxima_Cena : MonoBehaviour
 
     IEnumerator esperaCena()
     {
-        yield return new WaitForSeconds(18f);
+        yield return new WaitForSeconds(32f);
         SceneManager.LoadScene(cena);
     }
     public void BotaoPular()

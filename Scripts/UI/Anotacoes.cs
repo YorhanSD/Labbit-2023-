@@ -24,7 +24,7 @@ public class Anotacoes : MonoBehaviour
 
             caixaDialogo.SetActive(true);
 
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
         }
     }
 

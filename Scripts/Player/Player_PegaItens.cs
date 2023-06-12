@@ -6,9 +6,12 @@ using UnityEngine;
 public class Player_PegaItens : MonoBehaviour
 {
     Cria_Itens criaItens;
+    public bool pegouChave;
+    Teletransporte teletransporte;
     void Awake()
     {
         criaItens = GameObject.FindObjectOfType<Cria_Itens>();
+        teletransporte = GameObject.FindObjectOfType<Teletransporte>();
     }
    
     private void OnTriggerEnter2D(Collider2D _Player)
@@ -45,5 +48,11 @@ public class Player_PegaItens : MonoBehaviour
         {
             criaItens.CriaDNAVerde();
         }
+        if (_Player.gameObject.tag == "Chave")
+        {
+            pegouChave = true;
+            Debug.Log("Pegou a Chave!");
+        }
+
     }
 }

@@ -6,14 +6,14 @@ public class Plataforma_Vertical : MonoBehaviour
 {
     private bool moveBaixo = true;
     public float velocidade = 8f;
-    public Transform pontoA;
-    public Transform pontoB;
+    public float posicaoInicial;
+    public float posicaoFinal;
 
     void Update()
     {
-        if (transform.position.y > pontoA.position.y)
+        if (transform.position.y > posicaoInicial)
             moveBaixo = true;
-        if (transform.position.y < pontoB.position.y)
+        if (transform.position.y < posicaoFinal)
             moveBaixo = false;
         if (moveBaixo)
             transform.position = new Vector2(transform.position.x, transform.position.y - velocidade * Time.deltaTime);

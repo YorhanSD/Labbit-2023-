@@ -27,12 +27,15 @@ public class Cria_Itens : MonoBehaviour
     }
     public void CriaCenouraAzul()
     {
-        Cenoura_Azul cenouraAzul = new Cenoura_Azul();
-        cenouraAzul.SetNome("Cenoura Azul");
-
-        if (inventario != null)
+        for (int i = 0; i < 3; i++)
         {
-            inventario.AdicionaItem(cenouraAzul);
+            Cenoura_Azul cenouraAzul = new Cenoura_Azul();
+            cenouraAzul.SetNome("Cenoura Azul");
+
+            if (inventario != null)
+            {
+                inventario.AdicionaItem(cenouraAzul);
+            }
         }
     }
 
@@ -66,12 +69,15 @@ public class Cria_Itens : MonoBehaviour
 
     public void CriaCenouraVerde()
     {
-        Cenoura_Verde cenouraVerde = new Cenoura_Verde();
-        cenouraVerde.SetNome("Cenoura Verde");
-
-        if (inventario != null)
+        for (int i = 0; i < 3; i++)
         {
-            inventario.AdicionaItem(cenouraVerde);
+            Cenoura_Verde cenouraVerde = new Cenoura_Verde();
+            cenouraVerde.SetNome("Cenoura Verde");
+
+            if (inventario != null)
+            {
+                inventario.AdicionaItem(cenouraVerde);
+            }
         }
     }
 

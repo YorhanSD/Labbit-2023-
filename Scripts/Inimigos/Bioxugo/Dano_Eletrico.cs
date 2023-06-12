@@ -6,8 +6,7 @@ public class Dano_Eletrico : MonoBehaviour
 {
     Player_Vida playerVida;
     Controle_Emocional controleEmocional;
-    public int danoEletrico = 100;
-    private string tomouDano;
+    public int danoEletrico;
 
     public void Awake()
     {
@@ -17,8 +16,9 @@ public class Dano_Eletrico : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D _player)
     {
-        if (_player.gameObject.tag == "Player")
+        if (_player.gameObject.tag == "Player" && playerVida.GetImuneDano() == false)
         {
+            playerVida.SetImuneDano(true);
             playerVida.barraDeVida.value -= danoEletrico;
             controleEmocional.Medo(70);
         }

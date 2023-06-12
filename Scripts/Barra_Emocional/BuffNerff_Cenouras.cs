@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuffarAndNerffar_Cenouras : MonoBehaviour
+public class BuffNerff_Cenouras : MonoBehaviour
 {
     private Cenoura_Azul cenouraAzul;
     private Cenoura_Laranja cenouraLaranja;
@@ -29,17 +29,28 @@ public class BuffarAndNerffar_Cenouras : MonoBehaviour
         superCenouraPreta = GameObject.FindObjectOfType<Super_CenouraPreta>();
     }
 
-    public void BuffarDanoCenouras(int _Buff1, int _Buff2)
+    public void BuffarDanoCenouras()
     {
-        cenouraLaranja.SetDano(_Buff1);
-        cenouraPreta.SetDano(_Buff2);
+        cenouraLaranja.SetDano(20);
+        cenouraPreta.SetDano(60);
+        cenouraVerde.SetDano(50);
+        cenouraAzul.SetDano(40);
 
-        superCenouraLaranja.SetDano(_Buff1);
-        superCenouraPreta.SetDano(_Buff2);
+        superCenouraLaranja.SetDano(20);
+        superCenouraPreta.SetDano(160);
+        superCenouraVerde.SetDano(120);
+        superCenouraAzul.SetDano(40);
     }
-    public void BuffarCuraCenouras(int _Buff1, int _Buff2)
+    public void BuffarCuraCenouras()
     {
-        cenouraLaranja.SetCura(_Buff2);
-        cenouraPreta.SetCura(_Buff1);
+        cenouraLaranja.SetCura(60);
+        cenouraPreta.SetCura(20);
+        cenouraVerde.SetCura(50);
+        cenouraAzul.SetCura(40);
+
+        superCenouraLaranja.SetDano(20);
+        superCenouraPreta.SetDano(160);
+        superCenouraVerde.SetDano(120);
+        superCenouraAzul.SetDano(40);
     }
 }

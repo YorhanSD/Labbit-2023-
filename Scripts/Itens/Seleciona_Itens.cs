@@ -16,7 +16,7 @@ public class Seleciona_Itens : MonoBehaviour
 
     InterfaceTextos iT;
 
-    Player_Vida pV;
+    Player_Vida playerVida;
 
     Cenoura_Azul cenouraAzul;
     Cenoura_Laranja cenouraLaranja;
@@ -30,7 +30,7 @@ public class Seleciona_Itens : MonoBehaviour
 
     void Awake()
     {
-        pV = GameObject.FindObjectOfType<Player_Vida>();
+        playerVida = GameObject.FindObjectOfType<Player_Vida>();
         iT = GameObject.FindObjectOfType<InterfaceTextos>();
 
         inventario = GameObject.FindObjectOfType<Inventario>();
@@ -52,9 +52,9 @@ public class Seleciona_Itens : MonoBehaviour
     {
         if (inventario.listaItens.Count > 0)
         {
-            if (cenouraLaranja.GetQuantidade() > 0 || cenouraPreta.GetQuantidade() > 0 || superCenouraLaranja.GetQuantidade() > 0 || superCenouraPreta.GetQuantidade() > 0)
+            if (cenouraAzul.GetQuantidade() > 0 || cenouraLaranja.GetQuantidade() > 0 || cenouraPreta.GetQuantidade() > 0 || cenouraVerde.GetQuantidade() > 0 || superCenouraAzul.GetQuantidade() > 0 || superCenouraLaranja.GetQuantidade() > 0 || superCenouraPreta.GetQuantidade() > 0 || superCenouraVerde.GetQuantidade() > 0)
             {
-                verificaCenoura();
+                VerificaCenouras();
             }
         }
 
@@ -64,7 +64,7 @@ public class Seleciona_Itens : MonoBehaviour
             {
                 iT.SetEsperaMenssagem(false);
 
-                if (cenouraLaranja.GetQuantidade() > 0 || cenouraPreta.GetQuantidade() > 0 || superCenouraLaranja.GetQuantidade() > 0 || superCenouraPreta.GetQuantidade() > 0)
+                if (cenouraAzul.GetQuantidade() > 0 || cenouraLaranja.GetQuantidade() > 0 || cenouraPreta.GetQuantidade() > 0 || cenouraVerde.GetQuantidade() > 0 || superCenouraAzul.GetQuantidade() > 0 || superCenouraLaranja.GetQuantidade() > 0 || superCenouraPreta.GetQuantidade() > 0 || superCenouraVerde.GetQuantidade() > 0)
                 {
                     contagem++;
                 }
@@ -77,14 +77,27 @@ public class Seleciona_Itens : MonoBehaviour
         }
     }
 
-    void verificaCenoura()
+    void VerificaCenouras()
     {
         switch (inventario.listaItens[contagem].GetNome())
         {
             case "Cenoura Azul":
-               
+
+                if (iT.GetEsperaMenssagem() == false)
+                {
+                    iT.SetRecebeMenssagem("[X] para Atacar [C] para Curar");
+                }
+
                 atirarCenoura.SetItem(cenouraAzul);
                 atirarCenoura.SetPodeAtirar(true);
+
+                playerVida.BarraDeApoio(true, cenouraAzul.GetCura());
+
+                if (cenouraAzul.GetQuantidade() < 1)
+                {
+                    contagem++;
+                }
+
                 break;
 
             case "Cenoura Laranja":
@@ -98,7 +111,7 @@ public class Seleciona_Itens : MonoBehaviour
 
                 atirarCenoura.SetPodeAtirar(true);
 
-                pV.BarraDeApoio(true, cenouraLaranja.GetCura());
+                playerVida.BarraDeApoio(true, cenouraLaranja.GetCura());
 
                 if (cenouraLaranja.GetQuantidade() < 1)
                 {
@@ -117,7 +130,7 @@ public class Seleciona_Itens : MonoBehaviour
                 atirarCenoura.SetItem(cenouraPreta);
                 atirarCenoura.SetPodeAtirar(true);
 
-                pV.BarraDeApoio(true, cenouraPreta.GetCura());
+                playerVida.BarraDeApoio(true, cenouraPreta.GetCura());
 
                 if (cenouraPreta.GetQuantidade() < 1)
                 {
@@ -127,28 +140,53 @@ public class Seleciona_Itens : MonoBehaviour
                 break;
 
             case "Cenoura Verde":
-                
+
+                if (iT.GetEsperaMenssagem() == false)
+                {
+                    iT.SetRecebeMenssagem("[X] para Atacar [C] para Curar");
+                }
+
                 atirarCenoura.SetItem(cenouraVerde);
                 atirarCenoura.SetPodeAtirar(true);
+
+                playerVida.BarraDeApoio(true, cenouraVerde.GetCura());
+
+                if (cenouraVerde.GetQuantidade() < 1)
+                {
+                    contagem++;
+                }
                 break;
 
             case "Super Cenoura Azul":
-                
+
+                if (iT.GetEsperaMenssagem() == false)
+                {
+                    iT.SetRecebeMenssagem("[C] Ativar Imunidade Ultravioleta [X] para Atacar");
+                }
+
                 atirarCenoura.SetItem(superCenouraAzul);
                 atirarCenoura.SetPodeAtirar(true);
+
+                playerVida.BarraDeApoio(false, 0);
+
+                if (superCenouraAzul.GetQuantidade() < 1)
+                {
+                    contagem++;
+                }
+
                 break;
 
             case "Super Cenoura Laranja":
 
                 if (iT.GetEsperaMenssagem() == false)
                 {
-                    iT.SetRecebeMenssagem("[C] para Ativar Regeneração [X] para Atacar");
+                    iT.SetRecebeMenssagem("[C] Ativar Regeneração [X] para Atacar");
                 }
 
                 atirarCenoura.SetItem(superCenouraLaranja);
                 atirarCenoura.SetPodeAtirar(true);
 
-                pV.BarraDeApoio(false,0);
+                playerVida.BarraDeApoio(false,0);
 
                 if (superCenouraLaranja.GetQuantidade() < 1)
                 {
@@ -161,13 +199,13 @@ public class Seleciona_Itens : MonoBehaviour
 
                 if (iT.GetEsperaMenssagem() == false)
                 {
-                    iT.SetRecebeMenssagem("[C] para Ativar Ressuscitar [X] para Atacar");
+                    iT.SetRecebeMenssagem("[C] Ativar Ressuscitar [X] para Atacar");
                 }
 
                 atirarCenoura.SetItem(superCenouraPreta);
                 atirarCenoura.SetPodeAtirar(true);
 
-                pV.BarraDeApoio(false,0);
+                playerVida.BarraDeApoio(false,0);
 
                 if (superCenouraPreta.GetQuantidade() < 1)
                 {
@@ -177,9 +215,22 @@ public class Seleciona_Itens : MonoBehaviour
                 break;
 
             case "Super Cenoura Verde":
-               
+
+                if (iT.GetEsperaMenssagem() == false)
+                {
+                    iT.SetRecebeMenssagem("[C] Ativar Imunidade Toxicidade [X] para Atacar");
+                }
+
                 atirarCenoura.SetItem(superCenouraVerde);
                 atirarCenoura.SetPodeAtirar(true);
+
+                playerVida.BarraDeApoio(false, 0);
+
+                if (superCenouraVerde.GetQuantidade() < 1)
+                {
+                    contagem++;
+                }
+
                 break;
         }
     }

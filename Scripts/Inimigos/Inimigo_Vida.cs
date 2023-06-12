@@ -7,7 +7,7 @@ public class Inimigo_Vida : MonoBehaviour
 {
     public float vidaCompleta = 50;
     public bool permitirDrop = true;
-    public bool imunidadeCenouras = false;
+    public bool resistenciaCenouras = false;
     private int randomProbabilidade;
 
     public Text vidaTexto;
@@ -22,6 +22,7 @@ public class Inimigo_Vida : MonoBehaviour
     private Cenoura_Laranja cenouraLaranja;
     private Cenoura_Preta cenouraPreta;
     private Cenoura_Verde cenouraVerde;
+    private Super_CenouraAzul superCenouraAzul;
     private Super_CenouraLaranja superCenouraLaranja;
     private Super_CenouraVerde superCenouraVerde;
     private Super_CenouraPreta superCenouraPreta;
@@ -37,6 +38,7 @@ public class Inimigo_Vida : MonoBehaviour
         cenouraPreta = GameObject.FindObjectOfType<Cenoura_Preta>();
         cenouraVerde = GameObject.FindObjectOfType<Cenoura_Verde>();
 
+        superCenouraAzul = GameObject.FindObjectOfType<Super_CenouraAzul>();
         superCenouraLaranja = GameObject.FindObjectOfType<Super_CenouraLaranja>();
         superCenouraVerde = GameObject.FindObjectOfType<Super_CenouraVerde>();
         superCenouraPreta = GameObject.FindObjectOfType<Super_CenouraPreta>();
@@ -60,7 +62,48 @@ public class Inimigo_Vida : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D _other)
     {
-        if (imunidadeCenouras == false)
+        if (resistenciaCenouras == true)
+        {
+            if (_other.CompareTag("CenouraAzul"))
+            {
+                TomaDano(cenouraAzul.GetDano() / 3);
+            }
+            if (_other.CompareTag("CenouraLaranja"))
+            {
+                TomaDano(cenouraLaranja.GetDano() / 3);
+            }
+            if (_other.CompareTag("CenouraPreta"))
+            {
+                TomaDano(cenouraPreta.GetDano() / 3);
+            }
+            if (_other.CompareTag("CenouraVerde"))
+            {
+                TomaDano(cenouraVerde.GetDano() / 3);
+            }
+            if (_other.CompareTag("SuperCenouraAzul"))
+            {
+                TomaDano(superCenouraAzul.GetDano());
+            }
+            if (_other.CompareTag("SuperCenouraLaranja"))
+            {
+                TomaDano(superCenouraLaranja.GetDano());
+
+                playerVida.barraDeVida.value += superCenouraLaranja.GetCura();
+            }
+            if (_other.CompareTag("SuperCenouraPreta"))
+            {
+                TomaDano(superCenouraPreta.GetDano());
+            }
+            if (_other.CompareTag("SuperCenouraVerde"))
+            {
+                TomaDano(superCenouraVerde.GetDano());
+            }
+            if (_other.CompareTag("GolpeKarate"))
+            {
+                TomaDano(30);
+            }
+        }
+        else
         {
             if (_other.CompareTag("CenouraAzul"))
             {
@@ -78,21 +121,28 @@ public class Inimigo_Vida : MonoBehaviour
             {
                 TomaDano(cenouraVerde.GetDano());
             }
-        }
+            if (_other.CompareTag("SuperCenouraAzul"))
+            {
+                TomaDano(superCenouraAzul.GetDano());
+            }
+            if (_other.CompareTag("SuperCenouraLaranja"))
+            {
+                TomaDano(superCenouraLaranja.GetDano());
 
-        if (_other.CompareTag("SuperCenouraLaranja"))
-        {
-            TomaDano(superCenouraLaranja.GetDano());
-
-            playerVida.barraDeVida.value += superCenouraLaranja.GetCura();
-        }
-        if (_other.CompareTag("SuperCenouraPreta"))
-        {
-            TomaDano(superCenouraPreta.GetDano());
-        }
-        if (_other.CompareTag("SuperCenouraVerde"))
-        {
-            TomaDano(superCenouraVerde.GetDano());
+                playerVida.barraDeVida.value += superCenouraLaranja.GetCura();
+            }
+            if (_other.CompareTag("SuperCenouraPreta"))
+            {
+                TomaDano(superCenouraPreta.GetDano());
+            }
+            if (_other.CompareTag("SuperCenouraVerde"))
+            {
+                TomaDano(superCenouraVerde.GetDano());
+            }
+            if (_other.CompareTag("GolpeKarate"))
+            {
+                TomaDano(30);
+            }
         }
     }
     public void Drop()
