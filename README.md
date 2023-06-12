@@ -41,6 +41,7 @@ https://user-images.githubusercontent.com/79441853/230800132-9a037570-6acd-4585-
 
 <h2><a href="https://drive.google.com/file/d/1V-yDPv81upuwREL_8Oxu34y9oWzlTUhM/view?usp=share_link">Labbit [Demo] v4.3</a></h2>
 <h2><a href="https://drive.google.com/file/d/1kmIHowydVQd2ZZ1e5wygcl5U9LAhqLx1/view?usp=drive_link">Labbit [Demo] v5.3</a></h2>
+<h2><a href="https://drive.google.com/drive/folders/1HXY1FwJ2XI6jajAKLoDzrkKPUSwTB23G?usp=drive_link">GDD / Pitch</a></h2>
 
 
 
