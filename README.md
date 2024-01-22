@@ -1,6 +1,6 @@
 <h1>Labbit</h1>
 
-![Labbit Capa](https://user-images.githubusercontent.com/79441853/229653239-3c136e0c-1204-4ae9-9c27-cda39d72ae96.jpg)
+![Labbit Capa 2024](https://github.com/YorhanSD/Labbit/assets/79441853/77a832e3-3537-4724-bb2b-ef3abc7da5fe)
 
 # Sobre
 
